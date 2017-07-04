@@ -14,7 +14,7 @@ let hasUpdate = false;
 
 export default Service.extend({
   endpoint: computed(function() {
-    return getOwner(this)._lookupFactory('config:environment').APP.versionEndpoint || '/version.json';
+    return getOwner(this).factoryFor('config:environment').APP.versionEndpoint || '/version.json';
   }).readOnly(),
   hasUpdate: computed(()=> hasUpdate).readOnly().volatile(),
   delay: 5 * 60 * 1000, //ms <=> 5min
